@@ -1,0 +1,18 @@
+{
+  "name": "projet-groupe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "projet.js",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "dotenv": "^10.0.0",
+    "esm": "^3.2.25",
+    "nodemon": "^2.0.15",
+    "parcel": "^2.0.1"
+  },
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
