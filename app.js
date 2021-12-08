@@ -1,27 +1,35 @@
 const geoCode = require("./geoCode");
 const forecast = require("./forecast");
 
-console.log("Entrer : 4 args :city,(coordonnées ou ville),latitude,longitude([void] si pas d'argument) \nSi 'ville' ajouter full pour toutes les infos")
 
 const stdin = process.openStdin();
 
-const tenki = async (city,type,lat,lon) =>{
-    if(type === 'ville'){
+console.log("SVP Entez soit : {nom de la vile} + full(pour plus d'infos),ville \nsoit : latitude,longitude")
+
+const tenki = async (city,lat,lon,len) =>{
+    if(len === 1){
         city = city.toString('utf8').split(" ").join("")
         city = city.toLowerCase()
         geoCode(city)
-    }else if(type === 'coordonnées'){
+    }else if(len === 2){
         forecast(lat,lon)
     }
     
 
 }
 stdin.addListener("data", function (st) {
-    const city = (st.toString().split(",",4))[0];
-    const type = (st.toString().split(",",4))[1];
-    const lat = (st.toString().split(",",4))[2];
-    const lon = (st.toString().split(",",4))[3];
-    tenki(city,type,lat,lon);
+    const argLen = (st.toString().split(",",4)).length
+    if(argLen === 1){
+        const city = (st.toString().split(",",4))[0];
+        tenki(city,"void","void",argLen);
+    }else if(argLen === 2){
+        const lat = (st.toString().split(",",4))[1];
+        const lon = (st.toString().split(",",4))[2];
+        tenki("void",lat,lon,argLen);
+    }else{
+        console.log("SVP Entez soit : {nom de la vile} + full(pour plus d'infos),ville \nsoit : coordonnées,latitude,longitude")
+    }
+    
 })
 
 
