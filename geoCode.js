@@ -29,7 +29,7 @@ module.exports = async (city) =>{
          }else{
                 const {data : weather} = await axios(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.CLIENT_TOKEN}`)
                 const {lon,lat} = weather.coord
-                console.log("Latitude : " + lat.toString() + "\n" + "Latitude : " + lon.toString())
+                console.log("Latitude : " + lat.toString() + "\n" + "Longitude : " + lon.toString())
                 console.log(`Il fait ${(weather.main.temp - 273.15).toFixed(2)} degrés celcius à ${city}`)
                 console.log("\n\nSVP Entez soit : {nom de la vile} + full(pour plus d'infos)\nsoit : latitude,longitude\nTo exit type 'exit'\n\n")
          }
