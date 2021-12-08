@@ -32,6 +32,6 @@ module.exports = async (city) =>{
                 console.log(`Il fait ${(weather.main.temp - 273.15).toFixed(2)} degrés celcius à ${city}`)
          }
     }catch(err){
-        console.log("\n"+err.message + "Enter : 4 args :city,(coordonnées ou ville),latitude,longitude([void] si pas d'argument \nSi 'ville' ajouter full pour toutes les infos")
+        console.log("\n"+err.message + "\nSVP Entez soit : {nom de la vile} + full(pour plus d'infos),ville \nsoit : latitude,longitude")
     }    
 }
