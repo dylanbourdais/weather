@@ -4,7 +4,7 @@ const forecast = require("./forecast");
 
 const stdin = process.openStdin();
 
-console.log("SVP Entez soit : {nom de la vile} + full(pour plus d'infos),ville \nsoit : latitude,longitude\nTo exit type 'exit'\n\n")
+console.log("SVP Entez soit : {nom de la vile} + full(pour plus d'infos)\nsoit : latitude,longitude\nTo exit type 'exit'\n\n")
 
 const tenki = async (city,lat,lon,len) =>{
     if(len === 1){
@@ -29,7 +29,7 @@ stdin.addListener("data", function (st) {
         const lon = (st.toString().split(",",4))[1];
         tenki("void",lat,lon,argLen);
     }else{
-        console.log("SVP Entez soit : {nom de la vile} + full(pour plus d'infos),ville \nsoit : coordonnées,latitude,longitude\nTo exit type 'exit'\n\n")
+        console.log("SVP Entez soit : {nom de la vile} + full(pour plus d'infos)\nsoit : coordonnées,latitude,longitude\nTo exit type 'exit'\n\n")
     }
     
 })
