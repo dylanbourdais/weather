@@ -25,15 +25,15 @@ module.exports = async (city) =>{
               })
             Object.keys(weather.main).forEach((key, index) => console.log(mess[index] + weather.main[key])),
             console.log(weather.weather[0].description)
-            console.log("\n\nSVP Entez soit : {nom de la vile} + full(pour plus d'infos),ville \nsoit : latitude,longitude\nTo exit type 'exit'\n\n")  
+            console.log("\n\nSVP Entez soit : {nom de la vile} + full(pour plus d'infos)\nsoit : latitude,longitude\nTo exit type 'exit'\n\n")  
          }else{
                 const {data : weather} = await axios(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.CLIENT_TOKEN}`)
                 const {lon,lat} = weather.coord
                 console.log("Latitude : " + lat.toString() + "\n" + "Latitude : " + lon.toString())
                 console.log(`Il fait ${(weather.main.temp - 273.15).toFixed(2)} degrés celcius à ${city}`)
-                console.log("\n\nSVP Entez soit : {nom de la vile} + full(pour plus d'infos),ville \nsoit : latitude,longitude\nTo exit type 'exit'\n\n")
+                console.log("\n\nSVP Entez soit : {nom de la vile} + full(pour plus d'infos)\nsoit : latitude,longitude\nTo exit type 'exit'\n\n")
          }
     }catch(err){
-        console.log("\n"+err.message + "\nSVP Entez soit : {nom de la vile} + full(pour plus d'infos),ville \nsoit : latitude,longitude")
+        console.log("\n"+err.message + "\nSVP Entez soit : {nom de la vile} + full(pour plus d'infos)\nsoit : latitude,longitude")
     }    
 }
